@@ -49,7 +49,7 @@ namespace ijengine {
             current_level->update(now, last);
             current_level->draw(canvas, now, last);
 
-            audio::play_audio_from_path(current_level->audio());
+            //audio::play_audio_from_path(current_level->audio());
 
             physics::do_collisions();
 
@@ -58,7 +58,7 @@ namespace ijengine {
 
             if (current_level->done())
             {
-                audio::stop_audio();
+                //audio::stop_audio();
                 string next = current_level->next();
                 level::release(current_level);
                 current_level = level::make(next);
