@@ -335,7 +335,7 @@ namespace ijengine
         }
 
         void
-        do_collisions()
+        do_collisions(unsigned now, unsigned last)
         {
             switch (collisions_mode) {
             case ONE_TO_ALL:
@@ -348,8 +348,8 @@ namespace ijengine
 
                     if (r.area() > 0)
                     {
-                        target->on_collision(obj, r);
-                        obj->on_collision(target, r);
+                        target->on_collision(obj, r, now, last);
+                        obj->on_collision(target, r, now, last);
                     }
                 }
 
@@ -370,8 +370,8 @@ namespace ijengine
 
                         if (r.area() > 0)
                         {
-                            a->on_collision(b, r);
-                            b->on_collision(a, r);
+                            a->on_collision(b, r, now, last);
+                            b->on_collision(a, r, now, last);
                         }
                     }
                 }
